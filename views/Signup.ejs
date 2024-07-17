@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="h-screen w-screen">
+          <h1 class="text-center p-10 text-5xl font-mono font-extrabold text-blue-600">User Signup</h1>
+          <div class="flex justify-center items-center ">
+             <form action="/user" method="post" class="w-[30%] font-mono border p-5 border-zinc-300 shadow rounded-xl">
+               
+                <label class="m-2 text-xl font-semibold text-zinc-700" for="name">Name</label>
+                <input type="text" required name="name" placeholder="enter your name" class="border-[1px] border-zinc-400 w-full px-4 mt-2 py-4 outline-none bg-transparent text-zinc-700 rounded-full mb-4">
+               
+                <label class="text-xl font-semibold text-zinc-700" for="email">Email</label>
+                <input type="email" required name="email" placeholder="enter your email" class="border-[1px] border-zinc-400 w-full px-4 mt-2 py-4 outline-none bg-transparent text-zinc-700 rounded-full mb-4">
+
+                <label class="text-xl font-semibold text-zinc-700" for="password">Password</label>
+                <input type="password" name="password" placeholder="enter your password" required class="border-[1px] border-zinc-400 w-full px-4 mt-2 py-4 outline-none bg-transparent text-zinc-700 rounded-full mb-4" >
+
+                <button type="submit"  class="px-6 py-4 bg-blue-600 rounded-full border-none text-white ">Submit</button>
+             </form>
+          </div>
+    </div>
+</body>
+</html>

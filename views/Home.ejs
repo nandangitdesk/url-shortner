@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="h-screen w-screen">
+    
+      <h1
+        class="text-center text-5xl font-extrabold text-blue-600 p-10 font-mono"
+      >
+        Url Shortner
+      </h1>
+      <div class="flex justify-center items-center">
+        <form action="/url" method="post">
+         
+          <h1
+            class="text-2xl font-mono text-center font-semibold text-zinc-400"
+          >
+            Enter your original url
+          </h1>
+          <div class="flex items-center gap-5">
+            <input
+              type="text"
+              placeholder="https://example.com"
+              name="url"
+              class="border-[1px] border-zinc-400 w-full px-4 mt-4 py-4 outline-none bg-transparent text-zinc-700 rounded-full"
+            />
+            <button
+              type="submit"
+              class="px-6 py-4 bg-blue-600 rounded-full border-none text-white mt-4"
+            >
+              Genrate
+            </button>
+          </div>
+        </form>
+      </div>
+      <% if (locals.id) { %>
+        <p class="text-center text-zinc-500 font-mono text-xl mt-5">
+          <span class="text-zinc-900">URL Generated</span>:
+          <a href="/url/<%= id %>" class="text-blue-600 hover:underline" target="_blank">
+            http://localhost:8000/url/<%= id %>
+          </a>
+        </p>
+      <% } %>
+
+
+      <div class="flex items-center justify-center mt-20 w-full px-4">
+        <% if (locals.alldbUrls) { %>
+        <table class="min-w-full bg-white border border-gray-300">
+          <thead>
+            <tr class="bg-gray-200">
+              <th class="py-2 px-4 border-b border-gray-300 text-left">Sr.no</th>
+              <th class="py-2 px-4 border-b border-gray-300 text-left">ShortId</th>
+              <th class="py-2 px-4 border-b border-gray-300 text-left">RedirectURL</th>
+              <th class="py-2 px-4 border-b border-gray-300 text-left">Clicks</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% alldbUrls.forEach((allurl, index) => { %>
+            <tr class="hover:bg-gray-100">
+              <td class="py-2 px-4 border-b border-gray-300"><%= index + 1 %></td>
+              <td class="py-2 px-4 border-b border-gray-300"><%= allurl.shortId %></td>
+              <td class="py-2 px-4 border-b border-gray-300"><%= allurl.redirectUrl %></td>
+              <td class="py-2 px-4 border-b border-gray-300"><%= allurl.visitHistory.length %></td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+        <% } %>
+      </div>
+     
+    </div>
+  </body>
+</html>
