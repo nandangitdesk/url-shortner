@@ -28,7 +28,7 @@ MongoDB: Make sure MongoDB is running on your system or use a cloud MongoDB serv
 Installation
 Clone the repository:
 Copy code
-git clone https://github.com/yourusername/short-url-project.git
+git clone https://github.com/nandangitdesk/short-url-project.git
 cd short-url-project
 
 Install the dependencies:
